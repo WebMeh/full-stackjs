@@ -1,0 +1,375 @@
+{
+  "id": "html",
+  "title": "Les bases du HTML",
+  "description": "Donnez une structure à vos idées. Construisez votre première page web, une notion à la fois.",
+  "notions": [
+    {
+      "id": "structure",
+      "title": "La structure d’une page",
+      "duration": 15,
+      "intro": "Avant les couleurs et les interactions, il y a une structure. Découvrez le squelette commun à toutes les pages du Web.",
+      "sections": [
+        {
+          "title": "HTML, le langage de la structure",
+          "text": "HTML signifie HyperText Markup Language. Ce langage de balisage décrit le rôle des contenus : un titre, un paragraphe, une image. Le navigateur lit ce document et construit un arbre d’éléments appelé DOM. HTML ne définit ni les règles de mise en page de CSS, ni les comportements de JavaScript."
+        },
+        {
+          "title": "Comprendre une balise",
+          "text": "Un élément comprend généralement une balise ouvrante, un contenu et une balise fermante. Dans <p>Bonjour</p>, p identifie un paragraphe. Les éléments s’imbriquent : refermez le dernier ouvert en premier. Certains éléments, comme img et meta, sont vides et n’ont pas de balise fermante.",
+          "code": "<!-- Un élément = ouverture + contenu + fermeture -->\n<p>Bienvenue à Azicode62 !</p>"
+        },
+        {
+          "title": "Le squelette d’un document",
+          "text": "Le doctype active le mode standard du navigateur. html enveloppe le document ; lang indique la langue aux outils d’assistance. head contient les métadonnées : encodage UTF-8, titre de l’onglet et viewport mobile. body contient ce que l’utilisateur voit.",
+          "code": "<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Ma première page</title>\n  </head>\n  <body>\n    <h1>Bonjour Azilal !</h1>\n  </body>\n</html>"
+        },
+        {
+          "title": "À vous de jouer",
+          "text": "Créez un fichier index.html et ouvrez-le dans votre navigateur. Le titre de l’onglet vient de title ; le titre visible vient de h1. Modifiez chacun, enregistrez et actualisez pour distinguer leurs rôles."
+        }
+      ],
+      "tip": "Le navigateur répare beaucoup d’erreurs HTML. Une page qui s’affiche n’est pas forcément une page correctement structurée.",
+      "example": {
+        "explanation": "Une page d’accueil minimale pour notre école : les métadonnées sont dans head et le message de bienvenue dans body.",
+        "code": "<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Azicode62</title>\n</head>\n<body>\n  <h1>Coder depuis Azilal</h1>\n  <p>Mon aventure dans le développement commence ici.</p>\n</body>\n</html>"
+      },
+      "exercise": {
+        "title": "Votre première page",
+        "instructions": "Complétez le document : déclarez le HTML standard, indiquez la langue française, ajoutez un title dans head et un h1 dans body. Rédigez les textes de votre choix.",
+        "hint": "Utilisez <!doctype html>, <html lang=\"fr\">, <title> et <h1>. Le titre de l’onglet appartient à head.",
+        "starter": "<html>\n<head>\n  <meta charset=\"UTF-8\">\n</head>\n<body>\n  <!-- Ajoutez votre titre ici -->\n</body>\n</html>",
+        "checks": [
+          {
+            "type": "doctype",
+            "label": "Le document déclare le doctype HTML."
+          },
+          {
+            "selector": "html[lang=fr]",
+            "label": "La langue du document est le français."
+          },
+          {
+            "selector": "head > title",
+            "text": true,
+            "label": "L’onglet possède un titre."
+          },
+          {
+            "selector": "body h1",
+            "text": true,
+            "label": "Un titre principal est visible."
+          }
+        ]
+      }
+    },
+    {
+      "id": "texte",
+      "title": "Les titres et les paragraphes",
+      "duration": 12,
+      "intro": "Transformez un bloc de texte en contenu clair, lisible et bien hiérarchisé.",
+      "sections": [
+        {
+          "title": "Une hiérarchie de titres",
+          "text": "h1 annonce le sujet principal de la page. h2 introduit une section ; h3 une sous-section. Choisissez le niveau selon le plan du contenu, jamais selon la taille visuelle souhaitée. Pour cette formation, gardez un h1 principal et évitez de sauter des niveaux."
+        },
+        {
+          "title": "Rédiger des paragraphes",
+          "text": "Chaque idée peut former un p. Les retours à la ligne dans le code ne créent pas de nouveaux paragraphes à l’écran : les espaces sont généralement regroupés. br sert à un saut de ligne significatif, par exemple dans une adresse, pas à espacer la mise en page.",
+          "code": "<h1>Mon parcours</h1>\n<h2>Pourquoi apprendre à coder ?</h2>\n<p>Pour construire des outils utiles autour de moi.</p>"
+        },
+        {
+          "title": "Donner du sens à une expression",
+          "text": "strong marque une importance forte et em une emphase. Le navigateur les affiche souvent en gras et en italique, mais leur rôle est sémantique. Pour une décoration sans signification particulière, utilisez CSS.",
+          "code": "<p>Enregistrez <strong>avant de fermer</strong>.</p>\n<p>Je veux <em>vraiment</em> comprendre.</p>"
+        }
+      ],
+      "tip": "Lisez uniquement vos titres : ils doivent raconter le plan de votre page.",
+      "example": {
+        "explanation": "Une présentation de formation avec deux sections et une information importante.",
+        "code": "<h1>Ma formation JavaScript</h1>\n<h2>Mon objectif</h2>\n<p>Devenir développeur <strong>Full Stack</strong>.</p>\n<h2>Ma méthode</h2>\n<p>Pratiquer un peu chaque jour.</p>"
+      },
+      "exercise": {
+        "title": "Reproduisez la page modèle",
+        "instructions": "Observez la page modèle, puis recréez-la dans index.html avec la même hiérarchie de titres et les mêmes textes. Utilisez un h1 pour le titre principal, des h2 pour les sections et des p pour les paragraphes. Le rendu demandé est en HTML, sans CSS.",
+        "hint": "Commencez par recopier le h1, puis ajoutez chaque h2 suivi de son paragraphe. Gardez le même ordre que la page modèle.",
+        "starter": "<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Mon carnet</title>\n</head>\n<body>\n  <!-- Recréez ici la page modèle -->\n</body>\n</html>",
+        "checks": [
+          {
+            "label": "Le document commence par le doctype HTML.",
+            "type": "doctype"
+          },
+          {
+            "label": "La langue du document est le français.",
+            "selector": "html[lang=fr]"
+          },
+          {
+            "selector": "head > title",
+            "text": true,
+            "label": "Le titre de page est renseigné."
+          },
+          {
+            "selector": "body > h1",
+            "text": true,
+            "label": "La page possède un titre principal."
+          },
+          {
+            "selector": "body > h2",
+            "text": true,
+            "label": "Les deux titres de section sont présents.",
+            "min": 2
+          },
+          {
+            "selector": "body > p",
+            "text": true,
+            "label": "Les paragraphes sont présents.",
+            "min": 2
+          }
+        ],
+        "reference": "<!doctype html>\n<html lang=\"fr\">\n<head><meta charset=\"UTF-8\"><title>Mon carnet de développeuse</title></head>\n<body>\n  <h1>Mon carnet de développeuse</h1>\n  <h2>Ce que j’apprends</h2>\n  <p>Je découvre comment créer des pages web avec HTML.</p>\n  <h2>Mon objectif</h2>\n  <p>Je veux construire des outils utiles pour ma ville.</p>\n</body>\n</html>"
+      }
+    },
+    {
+      "id": "liens-images",
+      "title": "Les liens et les images",
+      "duration": 18,
+      "intro": "Reliez vos pages au reste du Web et illustrez votre contenu de manière accessible.",
+      "sections": [
+        {
+          "title": "Créer un lien utile",
+          "text": "L’élément a crée un lien lorsque son attribut href est présent. Une URL absolue désigne une adresse complète ; un chemin relatif désigne un fichier par rapport à la page actuelle. Le texte du lien doit décrire sa destination : préférez « Documentation HTML » à « Cliquez ici ».",
+          "code": "<a href=\"https://developer.mozilla.org/fr/docs/Web/HTML\">Documentation HTML</a>\n<a href=\"contact.html\">Nous contacter</a>\n<a href=\"#programme\">Aller au programme</a>"
+        },
+        {
+          "title": "Afficher une image",
+          "text": "img est un élément vide. src indique le fichier ; alt décrit l’information apportée par l’image si elle n’est pas visible. Une image purement décorative possède alt vide. width et height aident le navigateur à réserver la place avant le chargement.",
+          "code": "<img src=\"/mountains.svg\" alt=\"Deux sommets de montagne\" width=\"480\" height=\"240\">"
+        },
+        {
+          "title": "Éviter les chemins cassés",
+          "text": "Un chemin commençant par / part de la racine du site. ./ part du dossier courant et ../ remonte d’un dossier. Vérifiez la casse du nom et son extension. Dans cet atelier, une illustration locale est disponible à /mountains.svg."
+        }
+      ],
+      "tip": "Un bon texte alternatif transmet l’information de l’image ; inutile de commencer par « image de ».",
+      "example": {
+        "explanation": "Une illustration locale et un lien descriptif vers la documentation de référence.",
+        "code": "<h1>Apprendre à Azilal</h1>\n<img src=\"/mountains.svg\" alt=\"Deux sommets de montagne\" width=\"320\">\n<p><a href=\"https://developer.mozilla.org/fr/docs/Web/HTML\">Explorer la documentation HTML</a></p>"
+      },
+      "exercise": {
+        "title": "Défi : reproduisez cette page en 4 minutes",
+        "instructions": "Reproduisez la page modèle ci-dessous : ses titres, ses paragraphes, ses liens et son image avec texte alternatif. Travail en HTML uniquement ; aucun style à ajouter.",
+        "hint": "La page modèle contient un h1, deux h2, des p, des a et un img avec src et alt. Vérifiez les éléments dans la maquette avant de valider.",
+        "starter": "<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Azilal, ma ville</title>\n</head>\n<body>\n  <!-- Recréez ici la page modèle -->\n</body>\n</html>",
+        "checks": [
+          {
+            "type": "doctype",
+            "label": "Le document déclare le HTML standard."
+          },
+          {
+            "label": "Le titre principal est présent.",
+            "text": true,
+            "selector": "body > h1"
+          },
+          {
+            "min": 2,
+            "label": "Les deux titres de section sont présents.",
+            "text": true,
+            "selector": "body h2"
+          },
+          {
+            "min": 3,
+            "label": "Les paragraphes sont présents.",
+            "text": true,
+            "selector": "body p"
+          },
+          {
+            "min": 2,
+            "label": "Les liens ont un libellé.",
+            "text": true,
+            "selector": "a[href]"
+          },
+          {
+            "attribute": "alt",
+            "label": "Illustration avec texte alternatif.",
+            "selector": "img[src=\"/mountains.svg\"]"
+          }
+        ],
+        "reference": "<!doctype html>\n<html lang=\"fr\">\n<head><meta charset=\"UTF-8\"><title>Azilal, ma ville</title></head>\n<body>\n  <header>\n    <h1>Azilal, ma ville</h1>\n    <p>Entre montagnes et rencontres, découvrez les paysages qui m’inspirent.</p>\n    <p><a href=\"#montagnes\">Explorer les montagnes</a> · <a href=\"https://developer.mozilla.org/fr/docs/Web/HTML\">En savoir plus sur le Web</a></p>\n  </header>\n  <main>\n    <section id=\"montagnes\">\n      <h2>Un paysage à découvrir</h2>\n      <p>Les sommets et les vallées font partie du quotidien à Azilal.</p>\n      <img src=\"/mountains.svg\" alt=\"Deux sommets de montagne au-dessus d’une vallée\" width=\"480\" height=\"240\">\n    </section>\n    <section>\n      <h2>Une invitation à explorer</h2>\n      <p>Je vous invite à découvrir ma région et ses belles histoires.</p>\n      <p><a href=\"#montagnes\">Revoir le paysage</a></p>\n    </section>\n  </main>\n</body>\n</html>",
+        "duration": 4
+      }
+    },
+    {
+      "id": "listes",
+      "title": "Les listes",
+      "duration": 10,
+      "intro": "Organisez des ressources, des étapes et des objectifs avec les bons éléments.",
+      "sections": [
+        {
+          "title": "Quand l’ordre ne compte pas",
+          "text": "ul regroupe des éléments sans ordre particulier : compétences, courses ou ressources. Chaque entrée est un li, enfant direct de la liste. N’utilisez pas des tirets tapés dans un paragraphe pour simuler une liste.",
+          "code": "<ul>\n  <li>Un éditeur de code</li>\n  <li>Un navigateur</li>\n</ul>"
+        },
+        {
+          "title": "Quand l’ordre est important",
+          "text": "ol représente une séquence : une recette ou une procédure. Chaque étape est un li. Le navigateur numérote les entrées automatiquement ; vous n’avez pas à écrire les numéros."
+        },
+        {
+          "title": "Imbriquer une liste",
+          "text": "Une sous-liste doit être à l’intérieur d’un li. Gardez les niveaux limités pour préserver la lisibilité. Pour associer un terme et sa définition, HTML propose également dl, dt et dd.",
+          "code": "<ol>\n  <li>Créer index.html</li>\n  <li>Ajouter du contenu</li>\n  <li>Ouvrir la page dans le navigateur</li>\n</ol>"
+        }
+      ],
+      "tip": "Posez-vous la question : si j’inverse les éléments, est-ce que le sens change ? Si oui, choisissez ol.",
+      "example": {
+        "explanation": "Les outils sont sans ordre ; les étapes doivent être suivies dans l’ordre.",
+        "code": "<h2>Mes outils</h2>\n<ul><li>Éditeur</li><li>Navigateur</li></ul>\n<h2>Ma routine</h2>\n<ol><li>Lire</li><li>Coder</li><li>Tester</li></ol>"
+      },
+      "exercise": {
+        "title": "Préparez votre routine",
+        "instructions": "Créez une liste non ordonnée de trois outils et une liste ordonnée de trois étapes d’apprentissage.",
+        "hint": "Les enfants directs de ul et ol doivent être des li.",
+        "starter": "<h2>Mes outils</h2>\n\n<h2>Ma routine</h2>\n",
+        "checks": [
+          {
+            "selector": "ul > li",
+            "min": 3,
+            "text": true,
+            "label": "Trois outils figurent dans une liste non ordonnée."
+          },
+          {
+            "selector": "ol > li",
+            "min": 3,
+            "text": true,
+            "label": "Trois étapes figurent dans une liste ordonnée."
+          }
+        ]
+      }
+    },
+    {
+      "id": "semantique",
+      "title": "Une structure qui a du sens",
+      "duration": 15,
+      "intro": "Donnez des repères aux lecteurs, aux navigateurs et aux technologies d’assistance.",
+      "sections": [
+        {
+          "title": "Les grandes régions de la page",
+          "text": "header accueille l’introduction, nav regroupe les principaux liens de navigation, main contient le contenu principal et footer les informations de pied de page. Utilisez un seul main visible par page. Ces repères facilitent la navigation avec un lecteur d’écran.",
+          "code": "<header><h1>Mon portfolio</h1></header>\n<nav aria-label=\"Navigation principale\"><a href=\"#projets\">Projets</a></nav>\n<main>\n  <section id=\"projets\"><h2>Mes projets</h2><p>Mon premier site.</p></section>\n</main>\n<footer><p>Créé à Azilal</p></footer>"
+        },
+        {
+          "title": "Section ou article ?",
+          "text": "section regroupe un ensemble thématique, généralement introduit par un titre. article désigne un contenu autonome, comme une publication. div reste utile lorsqu’aucun élément sémantique ne convient : c’est un conteneur neutre."
+        },
+        {
+          "title": "Accessibilité dès le début",
+          "text": "Conservez une hiérarchie de titres logique, des liens descriptifs et des alternatives aux images. Les éléments HTML natifs apportent déjà des comportements utiles. Un lien sert à naviguer ; un bouton sert à déclencher une action."
+        }
+      ],
+      "tip": "La sémantique ne remplace pas le design : elle fournit une structure solide sur laquelle CSS peut travailler.",
+      "example": {
+        "explanation": "Une petite page de présentation avec ses régions principales et une section identifiable.",
+        "code": "<header><h1>Le club des développeurs</h1></header>\n<main><section><h2>Notre mission</h2><p>Apprendre ensemble à Azilal.</p></section></main>\n<footer><p>Azicode62 · 2026</p></footer>"
+      },
+      "exercise": {
+        "title": "Structurez votre présentation",
+        "instructions": "Ajoutez un header avec h1, un seul main contenant une section avec h2 et paragraphe, puis un footer.",
+        "hint": "Construisez d’abord les trois régions, puis remplissez la section à l’intérieur de main.",
+        "starter": "<!-- En-tête -->\n\n<!-- Contenu principal -->\n\n<!-- Pied de page -->",
+        "checks": [
+          {
+            "selector": "header h1",
+            "text": true,
+            "label": "L’en-tête possède un titre."
+          },
+          {
+            "selector": "main",
+            "exact": 1,
+            "label": "Un seul contenu principal est présent."
+          },
+          {
+            "selector": "main section h2",
+            "text": true,
+            "label": "La section principale possède un titre."
+          },
+          {
+            "selector": "main section p",
+            "text": true,
+            "label": "La section contient un paragraphe."
+          },
+          {
+            "selector": "footer",
+            "text": true,
+            "label": "Un pied de page est renseigné."
+          }
+        ]
+      }
+    }
+  ],
+  "workshop": {
+    "id": "atelier",
+    "title": "Votre première page de portfolio",
+    "duration": 45,
+    "intro": "Rassemblez tout ce que vous venez d’apprendre dans une page qui vous ressemble. Votre premier projet commence ici.",
+    "objectives": [
+      "Construire un document HTML complet et accessible.",
+      "Présenter votre parcours, vos objectifs et vos ressources.",
+      "Organiser une page avec des éléments sémantiques."
+    ],
+    "instructions": "Créez votre portfolio : un document en français avec doctype et titre d’onglet, un header avec votre nom, un main contenant une section de présentation (h2 et paragraphe), une liste de trois compétences, une image locale avec alternative, un lien HTTPS vers une ressource et un footer. Personnalisez tous les textes. Enfin, inspectez le rendu et la hiérarchie des titres.",
+    "hint": "Commencez par le squelette complet de la première notion, puis ajoutez les régions de la cinquième. Remplissez chaque région avec les éléments appris.",
+    "starter": "<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Mon portfolio</title>\n</head>\n<body>\n  <!-- À vous de construire ! -->\n</body>\n</html>",
+    "checks": [
+      {
+        "type": "doctype",
+        "label": "Le document déclare le HTML standard."
+      },
+      {
+        "selector": "html[lang=fr]",
+        "label": "Le document est en français."
+      },
+      {
+        "selector": "head title",
+        "text": true,
+        "label": "Le titre d’onglet est renseigné."
+      },
+      {
+        "selector": "header h1",
+        "text": true,
+        "label": "L’en-tête présente votre nom."
+      },
+      {
+        "selector": "main",
+        "exact": 1,
+        "label": "La page possède un seul main."
+      },
+      {
+        "selector": "main section h2",
+        "text": true,
+        "label": "La présentation possède un titre de section."
+      },
+      {
+        "selector": "main section p",
+        "text": true,
+        "label": "Un paragraphe vous présente."
+      },
+      {
+        "selector": "main ul > li",
+        "min": 3,
+        "text": true,
+        "label": "Trois compétences sont listées."
+      },
+      {
+        "selector": "img[src='/mountains.svg']",
+        "attribute": "alt",
+        "label": "Une image possède une alternative."
+      },
+      {
+        "selector": "a[href^='https://']",
+        "text": true,
+        "label": "Une ressource HTTPS est liée."
+      },
+      {
+        "selector": "footer",
+        "text": true,
+        "label": "Le pied de page est renseigné."
+      }
+    ]
+  }
+}
